@@ -36,9 +36,6 @@ BOOL WINAPI DllMain(HINSTANCE hModule, DWORD dwReason, LPVOID lpReserved)
 	{
 	case DLL_PROCESS_ATTACH:
 	{
-		wchar_t moduleFile[MAX_PATH];
-		GetModuleFileName(NULL, moduleFile, MAX_PATH);
-
 		if (!FindWindow(L"grcWindow", nullptr))
 			return true;
 
