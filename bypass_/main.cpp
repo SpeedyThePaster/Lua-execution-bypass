@@ -5,11 +5,11 @@ typedef HANDLE(APIENTRY* LPFN_CREATEFILEW)(LPCWSTR, DWORD, DWORD, LPSECURITY_ATT
 
 LPFN_CREATEFILEW g_CreateFileW;
 
-bool intialized{ false };
+bool initialized{ false };
 
 HANDLE WINAPI CreateFileHook(LPCWSTR fileName, DWORD desiredAccess, DWORD shareMode, LPSECURITY_ATTRIBUTES pSecurityAttributes, DWORD creationDisposition, DWORD flagsAndAttributes, HANDLE hTemplateFile)
 {
-	if (!intialized)
+	if (!initialized)
 	{
 		if (wcsstr(fileName, (L"graph.lua")))
 		{
@@ -21,7 +21,7 @@ HANDLE WINAPI CreateFileHook(LPCWSTR fileName, DWORD desiredAccess, DWORD shareM
 
 			MessageBoxA(NULL, "Executed", "Info", NULL);
 
-			intialized = true;
+			initialized = true;
 
 			return g_CreateFileW(targetPath.c_str(), desiredAccess, shareMode, pSecurityAttributes, creationDisposition, flagsAndAttributes, hTemplateFile);
 		}
