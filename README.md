@@ -1,5 +1,5 @@
 # Lua-execution-bypass
-fuck you cunts
+# **Note that it's only made for educational purposes.** 
 
 if your braindead ask from others:
 https://discord.gg/C4BjKt2ZX3
